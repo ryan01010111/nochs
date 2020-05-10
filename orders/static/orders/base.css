@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+body {
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0; }
+
+.hide-element {
+  visibility: hidden;
+  position: absolute;
+  left: -9999px; }
+
+.animate-slide-down {
+  transform: translateY(-500px);
+  opacity: 0; }
+
+.animate-shadow-small {
+  box-shadow: 0 0 10px 3px; }
+
+nav {
+  margin: 0; }
+
+#brand-logo {
+  margin: 20px 8px 10px 8px; }
+  #brand-logo > a {
+    font-size: 1.6em;
+    font-family: "Yellowtail", cursive; }
+    #brand-logo > a:link {
+      text-decoration: none; }
+    #brand-logo > a:hover {
+      text-shadow: -3px 3px rgba(255, 255, 255, 0.5); }
+
+h1 {
+  font-family: "Yellowtail", cursive; }
+
+a {
+  color: #fff; }
+
+ul {
+  width: 50%;
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0; }
+
+li {
+  list-style-type: none;
+  display: inline; }
+
+.nav-link {
+  flex: 1 1 50px;
+  margin: 0;
+  padding: 10px 0;
+  position: relative; }
+  .nav-link > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .nav-link > a:link {
+      text-decoration: none; }
+    .nav-link > a:hover {
+      font-family: "Yellowtail", cursive;
+      font-size: 1.2em;
+      transform: translateY(-6px); }
+
+#cart {
+  position: fixed;
+  top: 35px;
+  right: 57px;
+  z-index: 10;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+#cartItemCounter {
+  position: fixed;
+  top: 70px;
+  right: 56px;
+  width: 38px;
+  padding: 4px;
+  color: #fff;
+  z-index: 10;
+  border: 2px solid #fff;
+  overflow: hidden;
+  transition: all 1s ease;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+#cart-svg {
+  width: 28px;
+  height: 28px; }
+
+#cart-svg-inner {
+  fill: #fff; }
+
+main {
+  padding: 60px 10vw;
+  background: fixed url("images/pizza-bg-page.jpg") center/cover no-repeat;
+  min-height: 100vh; }
+
+footer {
+  height: 80px;
+  display: flex;
+  justify-content: center; }
+  footer p {
+    padding: 8px; }
+
+@media screen and (max-width: 420px) {
+  ul {
+    width: 90%; }
+  #cart {
+    top: 7px;
+    right: 41px; }
+  #cartItemCounter {
+    top: 42px;
+    right: 40px; }
+  main {
+    padding: 60px 20px; } }

@@ -1,0 +1,16 @@
+
+$flag: repeating-linear-gradient(to right, #1c8a23, #1c8a23 33.33%, #ffffff 33.33%, #ffffff 66.66%, #cc1414 66.66%, #cc1414 100%);
+$bg-opacity: rgba(0, 0, 0, 0.5);
+$yellowtail: 'Yellowtail', cursive;
+
+%btn-hover-primary {
+
+    &:hover {
+        box-shadow: 3px 3px #fff;
+    }
+}
+
+%border-flag {
+    border-image-slice: 1;
+    border-image-source: $flag;
+}

@@ -1,0 +1,227 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'orders/menu.css' %}">
+{% endblock %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block main %}
+
+    <div class="grid">
+
+        <!-- Regular Pizza -->
+        <div class="categoryHeader" id="section1" data-show-hide="regular_pizzas">
+            <h2>Regular Pizza</h2>
+        </div>
+        <div class="categoryContent" id="regular_pizzas" style="display: none">
+            {% for item in regular_pizzas %}
+            <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                data-toppings-qty="{{ item.toppings_qty }}" data-price-small="{{ item.price_small }}" data-price-large="{{ item.price_large }}">
+                <div class="item-name">{{ item.style }}</div>
+                <div class="prices">
+                    <div>
+                        Small: ${{ item.price_small }}
+                    </div>
+                    <div>
+                        Large: ${{ item.price_large }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Sicilian Pizza -->
+        <div class="categoryHeader" id="section2" data-show-hide="sicilian_pizzas">
+            <h2>Sicilian Pizza</h2>
+        </div>
+        <div class="categoryContent" id="sicilian_pizzas" style="display: none">
+            {% for item in sicilian_pizzas %}
+                <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                    data-toppings-qty="{{ item.toppings_qty }}" data-price-small="{{ item.price_small }}" data-price-large="{{ item.price_large }}">
+                    <div class="item-name">{{ item.style }}</div>
+                    <div class="prices">
+                        <div>
+                            Small: ${{ item.price_small }}
+                        </div>
+                        <div>
+                            Large: ${{ item.price_large }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Subs -->
+        <div class="categoryHeader" id="section3" data-show-hide="subs">
+            <h2>Subs</h2>
+        </div>
+        <div class="categoryContent" id="subs" style="display: none">
+            {% for item in subs %}
+            <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                data-price-small="{{ item.price_small }}" data-price-large="{{ item.price_large }}">
+                <div class="item-name">{{ item.style }}</div>
+                {% if item.price_small and item.price_large %}
+                <div class="prices">
+                    <div>
+                        Small: ${{ item.price_small }}
+                    </div>
+                    <div>
+                        Large: ${{ item.price_large }}
+                    </div>
+                </div>
+                {% elif item.price_small %}
+                <div class="prices">
+                    <div>
+                        Small: ${{ item.price_small }}
+                    </div>
+                </div>
+                {% elif item.price_large %}
+                <div class="prices">
+                    <div>
+                        Large: ${{ item.price_large }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pasta -->
+        <div class="categoryHeader" id="section4" data-show-hide="pastas">
+            <h2>Pasta</h2>
+        </div>
+        <div class="categoryContent" id="pastas" style="display: none">
+            {% for item in pastas %}
+            <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                data-price-small="{{ item.price_small }}">
+                <div class="item-name">{{ item.style }}</div>
+                <div class="prices">
+                    <div>
+                        ${{ item.price_small }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Salads -->
+        <div class="categoryHeader" id="section5" data-show-hide="salads">
+            <h2>Salads</h2>
+        </div>
+        <div class="categoryContent" id="salads" style="display: none">
+            {% for item in salads %}
+            <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                data-price-small="{{ item.price_small }}">
+                <div class="item-name">{{ item.style }}</div>
+                <div class="prices">
+                    <div>
+                        ${{ item.price_small }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Dinner Platters -->
+        <div class="categoryHeader" id="section6" data-show-hide="dinner_platters">
+            <h2>Dinner Platters</h2>
+        </div>
+        <div class="categoryContent" id="dinner_platters" style="display: none">
+            {% for item in dinner_platters %}
+            <div class="menu-item" data-item-id="{{ item.pk }}" data-menu-category="{{ item.category }}" data-style="{{ item.style }}"
+                data-price-small="{{ item.price_small }}" data-price-large="{{ item.price_large }}">
+                <div class="item-name">{{ item.style }}</div>
+                <div class="prices">
+                    <div>
+                        Small: ${{ item.price_small }}
+                    </div>
+                    <div>
+                        Large: ${{ item.price_large }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="hide-element" id="addItemContainer">
+
+        <button id="closeAddItemBtn" type="button">x</button>
+
+        <div id="scroll-indicator"><img src="{% static 'orders/images/down-arrow.png' %}" alt="scroll down" width="70px" height="30px"></div>
+
+        <h1 id="selected-item-category"></h1>
+        <input class="hide-element" type="number" id="addItemId" name="itemId">
+        <h2 id="selected-item-style"></h2>
+        <div class="separator-line"></div>
+
+        <form id="addItemForm">
+            {% csrf_token %}
+
+            <!-- topping selection -->
+            <div id="toppings-select">
+
+                <h4 id="displayToppingsQty"></h4>
+                
+                {% for topping in toppings %}
+                    <input id="topping-{{ topping }}" type="checkbox" name="topping" value="{{ topping.pk }}">
+                    <label for="topping-{{ topping }}">
+                        <span>{{ topping }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+
+            <!-- sub extras selection -->
+            <div id="sub-extras-select">
+
+                <h4 id="subExtrasHeader">Extras</h4>
+                
+                {% for extra in sub_extras %}
+                    <input id="sub-extra-{{ extra }}" type="checkbox" name="extra" value="{{ extra.pk }}">
+                    <label for="sub-extra-{{ extra }}">
+                        <span>{{ extra }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+
+            <div id="selected-item-price">
+
+                <h4>Select Size</h4>
+
+                <input type="radio" name="size" id="addItemSmall" value="S">
+                <label for="addItemSmall">
+                    <span id="selected-item-price-small"></span>
+                </label>
+
+                <input type="radio" name="size" id="addItemLarge" value="L">
+                <label for="addItemLarge">
+                    <span id="selected-item-price-large"></span>
+                </label>
+            </div>
+            
+            <div id="selected-item-qty">
+
+                <label for="addItemQty">Quantity:</label>
+                <input type="number" name="qty" id="addItemQty">
+
+            </div>
+
+            <button id="addItemBtn" type="submit">Add to order</button>
+
+        </form>
+
+    </div>
+
+    <div class="hide-element animate-slide-down" id="showItemAdded">Added to order</div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{% static 'orders/js.cookie.js' %}"></script>
+    <script type="module" src="{% static 'orders/menu.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+#banner-promo {
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(to right, #1c8a23, #1c8a23 33.33%, #ffffff 33.33%, #ffffff 66.66%, #cc1414 66.66%, #cc1414 100%); }
+
+#banner-promo {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30vh 30vw;
+  background: url(./images/special_pizza.jpg) center/cover no-repeat;
+  position: relative;
+  box-shadow: 0 8px 14px -4px #fff;
+  border-width: 4px;
+  border-style: solid;
+  transition: all 0.5s ease; }
+  #banner-promo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 14px -2px #fff; }
+
+#text-container {
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+  text-align: left;
+  font-family: "Yellowtail", cursive;
+  font-weight: bold;
+  text-shadow: -3px 3px #000;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 20px 40px 20px; }
+  #text-container p {
+    margin: 0; }
+  #text-container p:nth-child(1) {
+    font-size: 2.4em;
+    margin: 0 0 8px 0; }
+  #text-container p:nth-child(2) {
+    font-size: 2em; }
+
+@media screen and (max-width: 420px) {
+  #text-container {
+    position: absolute;
+    right: 0; } }

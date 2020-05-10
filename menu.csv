@@ -1,0 +1,39 @@
+category,style,toppings_qty,price_small,price_large
+Regular Pizza,Cheese,0,12.70,17.95
+Regular Pizza,1 Topping,1,13.70,19.95
+Regular Pizza,2 Topping,2,15.20,21.95
+Regular Pizza,3 Topping,3,16.20,23.95
+Regular Pizza,Special,0,17.75,25.95
+Sicilian Pizza,Cheese,0,24.45,38.70
+Sicilian Pizza,1 Topping,1,26.45,40.70
+Sicilian Pizza,2 Topping,2,28.45,42.70
+Sicilian Pizza,3 Topping,3,29.45,44.70
+Sicilian Pizza,Special,0,30.45,45.70
+Sub,Cheese,0,6.50,7.95
+Sub,Italian,0,6.50,7.95
+Sub,Ham & Cheese,0,6.50,7.95
+Sub,Meatball,0,6.50,7.95
+Sub,Tuna,0,6.50,7.95
+Sub,Turkey,0,7.50,8.50
+Sub,Chicken Parmigiana,0,7.50,8.50
+Sub,Eggplant Parmigiana,0,6.50,7.95
+Sub,Steak,0,6.50,7.95
+Sub,Steak & Cheese,0,6.95,8.50
+Sub,"Sausage, Peppers & Onions",0,0,8.50
+Sub,Hamburger,0,4.60,6.95
+Sub,Cheeseburger,0,5.10,7.45
+Sub,Fried Chicken,0,6.95,8.50
+Sub,Veggie,0,6.95,8.50
+Pasta,Baked Ziti w/ Mozzarella,0,6.50
+Pasta,Baked Ziti w/ Meatballs,0,8.75
+Pasta,Baked Ziti w/ Chicken,0,9.75
+Salad,Garden Salad,0,6.25
+Salad,Greek Salad,0,8.25
+Salad,Antipasto,0,8.25
+Salad,Salad w/ Tuna,0,8.25
+Dinner Platter,Garden Salad,0,40.00,65.00
+Dinner Platter,Greek Salad,0,50.00,75.00
+Dinner Platter,Antipasto,0,50.00,75.00
+Dinner Platter,Baked Ziti,0,40.00,65.00
+Dinner Platter,Meatball Parm,0,50.00,75.00
+Dinner Platter,Chicken Parm,0,55.00,85.00

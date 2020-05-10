@@ -1,0 +1,67 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'orders/order_tracker.css' %}">
+{% endblock %}
+
+{% block title %}
+    My Order
+{% endblock %}
+
+{% block main %}
+    
+    {% for order in orders %}
+        <div class="container">
+            <table>
+                
+                <thead>
+                    <tr class="order-header">
+                        <th scope="row">Order No. {{ order.pk }}</th>
+                        <td>{{ order.user.last_name }}, {{ order.user.first_name }}</td>
+                        <td></td>
+                        <td colspan="2">{{ order.timestamp|date:"d M | H:i" }}</td>
+                    </tr>
+
+                    <tr class="items-header">
+                        <th scope="col">Item</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in order.orderItems.all %}
+                        <tr class="order-items">
+                            <td>{{ item.menu_item }}</td>
+                            <td>
+                                {% for x in item.toppings.all %}
+                                    {{ x }}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                                {% for x in item.sub_addons.all %}
+                                    {{ x }}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>{{ item.size }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>${{ item.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="5">Total: ${{ order.total_cost }}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

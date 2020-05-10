@@ -1,0 +1,15 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass --w scss/menu.scss static/orders/menu.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.14.0"
+  },
+  "dependencies": {}
+}

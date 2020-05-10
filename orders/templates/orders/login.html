@@ -1,0 +1,37 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'orders/login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Log in
+{% endblock %}
+
+{% block main %}
+    
+    <div id="container">
+
+        <h1>Welcome.</h1>
+        <h2>Please, log in</h2>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" autofocus name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+
+            <button id="submitBtn" type="submit">Log in</button>
+        </form>
+
+        <div id="register-container">
+            <h6>Not registered yet?</h6>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+    </div>
+
+{% endblock %}

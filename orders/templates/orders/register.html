@@ -1,0 +1,35 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'orders/register.css' %}">
+{% endblock %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <div id="container">
+
+        <h1>Create an account</h1>
+    
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <input type="text" autofocus name="firstName" placeholder="First name">
+            <input type="text" name="lastName" placeholder="Last name">
+            <input type="email" name="email" placeholder="Email address">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="passwordConfirmation" placeholder="Confirm password">
+
+            <button id="submitBtn" type="submit">Register</button>
+        </form>
+    </div>
+
+{% endblock %}

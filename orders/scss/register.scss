@@ -1,0 +1,61 @@
+
+@import 'variables';
+
+button {
+    outline: none;
+}
+
+#container {
+    width: 60%;
+    min-height: 90vh;
+    background-color: #111;
+    margin: 0 auto;
+    padding: 20px 8px 50px 8px;
+    box-shadow: 0 0 8px 1px #fff;
+
+    h1 {
+        font-size: 2.2em;
+        margin: 20px 0 50px 0;
+    }
+}
+
+input {
+    display: block;
+    margin: 18px auto;
+    padding: 8px;
+    font-size: 1.4em;
+    caret-color: #fff;
+    color: #fff;
+    outline: none;
+    border: 1px solid #fff;
+    box-shadow: 4px 4px #fff;
+    background-color: #000
+}
+
+#submitBtn {
+    background-color: transparent;
+    color: #fff;
+    font-family: $yellowtail;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 8px 22px;
+    margin: 20px 0 0 0;
+    border-width: 2px;
+    border-style: solid;
+    @extend %border-flag;
+    transition: all 0.5s ease;
+
+    &:hover {
+        border: 2px solid #fff;
+        color: #000;
+        background: $flag;
+        padding: 8px 80px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    #container {
+        width: 100%;
+    }
+}

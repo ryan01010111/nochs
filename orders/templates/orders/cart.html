@@ -1,0 +1,75 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'orders/cart.css' %}">
+{% endblock %}
+
+{% block title %}
+    My Order
+{% endblock %}
+
+{% block main %}
+
+    {% if order %}
+        <h1>My Order</h1>
+
+        <h3>Order No: {{ order.pk }}</h3>
+        <div id="container">
+            <div id="scroll-indicator">&#8592 &#8594</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in order_items %}
+                        <tr>
+                            <td>{{ item.menu_item }}</td>
+                            <td>
+                                {% for x in item.toppings.all %}
+                                    {{ x }}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                                {% for x in item.sub_addons.all %}
+                                    {{ x }}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>{{ item.size }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>${{ item.price }}</td>
+                            <td><a href="{% url 'order_remove_item' item_num=item.pk %}">X</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="4">Total :</th>
+                        <td>${{ order.total_cost|floatformat:2}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <a href="{% url 'order_payment' order_num=order.pk %}"><button id="goToPay">Pay and Order</button></a>
+
+    <!-- empty cart -->
+    {% else %}
+        <div id="cart-empty">
+            <h1>No items</h1>
+            <h4>Add items from the <a href="{% url 'menu' %}">Menu</a> page to see them here</h4>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

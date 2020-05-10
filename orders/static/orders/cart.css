@@ -1,0 +1,142 @@
+#container {
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(to right, #1c8a23, #1c8a23 33.33%, #ffffff 33.33%, #ffffff 66.66%, #cc1414 66.66%, #cc1414 100%); }
+
+a:link {
+  text-decoration: none; }
+
+h3 {
+  margin: 20px 0 0 0;
+  text-align: left;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: "Yellowtail", cursive; }
+
+#container {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 2px;
+  border-style: solid;
+  background: rgba(0, 0, 0, 0.5); }
+
+#scroll-indicator {
+  display: none; }
+
+table {
+  width: 100%;
+  margin: 0;
+  table-layout: fixed; }
+
+thead {
+  background-color: rgba(28, 138, 35, 0.7); }
+
+thead th:nth-child(1) {
+  width: 30%; }
+
+thead th:nth-child(2) {
+  width: 40%; }
+
+thead th:nth-child(3) {
+  width: 5%; }
+
+thead th:nth-child(4) {
+  width: 7.5%; }
+
+thead th:nth-child(5) {
+  width: 10%; }
+
+thead th:nth-child(6) {
+  width: 7.5%; }
+
+thead th {
+  padding: 14px; }
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.7); }
+
+tbody tr:nth-child(even) {
+  background-color: rgba(70, 70, 70, 0.7); }
+
+tbody td {
+  padding: 30px 14px; }
+
+tbody td:nth-child(5) {
+  text-align: right;
+  padding: 30px 22px; }
+
+tbody td:nth-child(6) {
+  font-weight: bold;
+  font-size: 1em; }
+
+th {
+  font-family: "Yellowtail", cursive;
+  font-size: 1.2em; }
+
+td {
+  font-size: 0.9em; }
+
+tfoot {
+  background-color: rgba(28, 138, 35, 0.7); }
+
+tfoot th {
+  text-align: left;
+  font-size: 1.3em;
+  padding: 14px 30px; }
+
+tfoot td:nth-child(2) {
+  text-align: right;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 14px 22px; }
+
+#goToPay {
+  padding: 14px 160px;
+  margin: 50px 0 10px 0;
+  font-size: 1.6em;
+  text-shadow: -1px 1px #fff;
+  color: #000;
+  font-family: "Yellowtail", cursive;
+  background: repeating-linear-gradient(to right, #1c8a23, #1c8a23 33.33%, #ffffff 33.33%, #ffffff 66.66%, #cc1414 66.66%, #cc1414 100%);
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition-property: padding;
+  transition-duration: 0.8s;
+  transition-timing-function: ease; }
+  #goToPay:hover {
+    padding: 14px 40px; }
+
+#cart-empty {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 14px; }
+  #cart-empty h1 {
+    margin: 0 0 50px 0; }
+  #cart-empty a {
+    text-decoration: underline; }
+
+@media screen and (max-width: 800px) {
+  #container {
+    overflow-x: scroll; }
+  #scroll-indicator {
+    display: block;
+    min-width: 900px;
+    text-align: left;
+    font-size: 1.4em;
+    padding: 4px 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 4px 4px #fff; }
+  table {
+    min-width: 900px; }
+  thead th:nth-child(1) {
+    width: 30%; }
+  thead th:nth-child(2) {
+    width: 30%; }
+  thead th:nth-child(3) {
+    width: 7.5%; }
+  thead th:nth-child(4) {
+    width: 10%; }
+  thead th:nth-child(5) {
+    width: 12.5%; }
+  thead th:nth-child(6) {
+    width: 10%; }
+  #goToPay {
+    padding: 14px 60px; } }
