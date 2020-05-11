@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass --w scss/menu.scss static/orders/menu.css"
+    "sass": "node-sass --w scss/base.scss static/orders/base.css"
   },
   "author": "",
   "license": "ISC",
